@@ -1,5 +1,4 @@
 #include "prime.h"
-#include <stdbool.h>
 #include <stdio.h>
 
 bool IsPrime(int num) {
