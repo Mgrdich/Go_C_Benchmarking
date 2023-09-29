@@ -1,5 +1,9 @@
-#include "prime.h"
 #include <stdio.h>
+#include "prime.h"
+
+int GetM() {
+    return 1;
+}
 
 bool IsPrime(int num) {
     if (num <= 1) {

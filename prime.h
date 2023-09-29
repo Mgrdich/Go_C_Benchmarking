@@ -1,10 +1,10 @@
-#ifndef _PRIME_H
-#define _PRIME_H
+#ifndef PRIME_H
+#define PRIME_H
 
 #include <stdbool.h>
 
 bool IsPrime(int num);
 void PrintPrimesUpToN(int n);
+int GetM();
 
-#endif /* _PRIME_H */
-
+#endif /* PRIME_H */

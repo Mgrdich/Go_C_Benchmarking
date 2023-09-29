@@ -3,6 +3,6 @@
 
 
 int main(){
-    PrintPrimesUpToN(100000);
+    printf("%d\n", GetM());
     return 0;
 }
