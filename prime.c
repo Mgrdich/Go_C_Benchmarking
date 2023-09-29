@@ -29,7 +29,7 @@ void PrintPrimesUpToN(int n) {
         printf("2\n");
     }
     for (int i = 3; i <= n; i += 2) {
-        if (isPrime(i)) {
+        if (IsPrime(i)) {
             printf("%d\n", i);
         }
     }
