@@ -1,6 +1,8 @@
+#include "prime.h"
 #include <stdbool.h>
+#include <stdio.h>
 
-bool isPrime(int num) {
+bool IsPrime(int num) {
     if (num <= 1) {
         return false;
     }
@@ -22,7 +24,7 @@ bool isPrime(int num) {
     return true;
 }
 
-void printPrimesUpToN(int n) {
+void PrintPrimesUpToN(int n) {
     if (n >= 2) {
         printf("2\n");
     }

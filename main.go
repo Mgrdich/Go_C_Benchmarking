@@ -1,5 +1,7 @@
 package main
 
-func main() {
+// #include "prime.h"
+import "C"
 
+func main() {
 }

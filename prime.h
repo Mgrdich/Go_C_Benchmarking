@@ -3,8 +3,8 @@
 
 #include <stdbool.h>
 
-bool isPrime(int num);
-void printPrimesUpToN(int n);
+bool IsPrime(int num);
+void PrintPrimesUpToN(int n);
 
 #endif /* PRIME_H */
 
