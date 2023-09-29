@@ -1,14 +1,18 @@
 goExecFileName := go-exec-main
 cExecFileName := c-exec-main
+goMainFile := main.go
+cMainFile := main.c
+cLibFile := prime.c
 
-build-main-go: main.go build-main-c-linker
-	go build -o $(goExecFileName) main.go
 
-build-main-c-linker: main.c prime.c
+build-main-go: $(goMainFile)
+	go build -o $(goExecFileName) $(goMainFile)
+
+build-main-c-linker: $(cLibFile)
 	gcc -c prime.c -o prime.o
 
-build-main-c: main.c prime.c
-	gcc -o $(cExecFileName) main.c prime.c
+build-main-c: $(cMainFile) $(cLibFile)
+	gcc -o $(cExecFileName) $(cMainFile) $(cLibFile)
 
 run-main-go: $(goExecFileName)
 	./$(goExecFileName)
