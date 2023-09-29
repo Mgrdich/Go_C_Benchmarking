@@ -1,3 +1,7 @@
 .idea/*
 
 *.o
+
+go-exec-file
+
+c-exec-file
