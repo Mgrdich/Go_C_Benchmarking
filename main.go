@@ -1,15 +1,15 @@
 package main
 
 /*
-int GetM() {
-    return 1;
-}
+#cgo CFLAGS: -I.
+#include <stdbool.h>
+#include "prime.h"
 */
 import "C"
 import "fmt"
 
 func main() {
-	result := C.GetM()
+	result := C.IsPrime(C.int(10))
 
-	fmt.Printf("Result: %d\n", result)
+	fmt.Println(C.int(10), result)
 }
