@@ -1,9 +1,7 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "prime.h"
 
-int GetM() {
-    return 1;
-}
 
 bool IsPrime(int num) {
     if (num <= 1) {

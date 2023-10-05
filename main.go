@@ -1,9 +1,7 @@
 package main
 
 /*
-#cgo CFLAGS: -I.
-#include <stdbool.h>
-#include "prime.h"
+#include "prime.c"
 */
 import "C"
 import "fmt"

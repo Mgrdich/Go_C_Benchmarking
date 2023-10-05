@@ -1,8 +1,8 @@
-package prime1
+package prime
 
 import "fmt"
 
-func IsPrime3(num int) bool {
+func IsPrime(num int) bool {
 	if num <= 1 {
 		return false
 	}
@@ -24,12 +24,12 @@ func IsPrime3(num int) bool {
 	return true
 }
 
-func PrintPrimesUpToN4(n int) {
+func PrintPrimesUpToN(n int) {
 	if n >= 2 {
 		fmt.Println(2)
 	}
 	for i := 3; i <= n; i += 2 {
-		if IsPrime3(i) {
+		if IsPrime(i) {
 			fmt.Println(i)
 		}
 	}
