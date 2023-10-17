@@ -14,6 +14,9 @@ output_file="$2"
 
 # Loop to run the command multiple times
 for i in {1..10}; do
-    echo "Run $i"
-    { time "$command_to_run" ; } 2>> "$output_file"
+     {
+            echo "------------------Run $i---------------"
+            time "$command_to_run"
+            echo "---------------------------------------"
+        } 2>> "$output_file"
 done
