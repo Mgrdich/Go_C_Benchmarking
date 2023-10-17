@@ -26,11 +26,11 @@ func IsPrime(num int64) bool {
 
 func PrintPrimesUpToN(n int) {
 	if n >= 2 {
-		fmt.Println(2)
+		fmt.Printf("%d\n", 2)
 	}
 	for i := 3; i <= n; i += 2 {
 		if IsPrime(int64(i)) {
-			fmt.Println(i)
+			fmt.Printf("%d\n", i)
 		}
 	}
 }
