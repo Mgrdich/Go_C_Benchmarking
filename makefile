@@ -25,5 +25,14 @@ run-main-go: $(goExecFileName)
 run-main-c: $(cExecFileName)
 	./$(cExecFileName)
 
+start-benchmarking-c:
+	./benchmarking.sh  ./$(cExecFileName) output_c
+
+start-benchmarking-go:
+	./benchmarking.sh  ./$(goExecFileName) output_go
+
+start-benchmarking-go-native:
+	./benchmarking.sh  ./$(goNativeExecFileName) output_go
+
 clean:
 	rm -rf *.o $(goExecFileName) $(cExecFileName) $(goNativeExecFileName)
