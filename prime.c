@@ -2,8 +2,7 @@
 #include <stdbool.h>
 #include "prime.h"
 
-
-bool IsPrime(int num) {
+bool IsPrime(long num) {
     if (num <= 1) {
         return false;
     }

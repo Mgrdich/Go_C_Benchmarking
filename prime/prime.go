@@ -2,7 +2,7 @@ package prime
 
 import "fmt"
 
-func IsPrime(num int) bool {
+func IsPrime(num int64) bool {
 	if num <= 1 {
 		return false
 	}
@@ -13,7 +13,7 @@ func IsPrime(num int) bool {
 		return false
 	}
 
-	i := 5
+	var i int64 = 5
 	for i*i <= num {
 		if num%i == 0 || num%(i+2) == 0 {
 			return false
@@ -29,7 +29,7 @@ func PrintPrimesUpToN(n int) {
 		fmt.Println(2)
 	}
 	for i := 3; i <= n; i += 2 {
-		if IsPrime(i) {
+		if IsPrime(int64(i)) {
 			fmt.Println(i)
 		}
 	}

@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "prime.h"
 
 
 int main(){
-    printf("%d\n", GetM());
+    PrintPrimesUpToN(100000000);
     return 0;
 }
