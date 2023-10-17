@@ -26,12 +26,15 @@ run-main-c: $(cExecFileName)
 	./$(cExecFileName)
 
 start-benchmarking-c:
+	./benchmarking.sh  "gcc -o $(cExecFileName) $(cMainFile) $(cLibFile)"  output_c_compiler
 	./benchmarking.sh  ./$(cExecFileName) output_c
 
 start-benchmarking-go:
+	./benchmarking.sh  "go build -o $(goExecFileName) $(goMainFile)" output_go_compiler
 	./benchmarking.sh  ./$(goExecFileName) output_go
 
 start-benchmarking-go-native:
+	./benchmarking.sh  "go build -o $(goNativeExecFileName) $(goNativeMainFile)" output_go_compiler
 	./benchmarking.sh  ./$(goNativeExecFileName) output_go
 
 clean:
