@@ -36,15 +36,15 @@ build-all-prime-exec:
 	make build-native-main-go-prime
 	make build-main-c-prime
 
-start-benchmarking-c-prime:
+benchmark-c-prime:
 	./benchmarking.sh  "gcc -o $(cExecFileNamePrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_compiler_prime
 	./benchmarking.sh  ./$(cExecFileNamePrime) output_c_prime
 
-start-benchmarking-go-prime:
+benchmark-go-prime:
 	./benchmarking.sh  "go build -o $(goExecFileNamePrime) $(goMainFilePrime)" output_go_compiler_prime --size
 	./benchmarking.sh  ./$(goExecFileNamePrime) output_go_prime
 
-start-benchmarking-go-native-prime:
+benchmark-go-native-prime:
 	./benchmarking.sh  "go build -o $(goNativeExecFileNamePrime) $(goNativeMainFilePrime)" output_go_native_compiler_prime --size
 	./benchmarking.sh  ./$(goNativeExecFileNamePrime) output_go_native_prime
 
@@ -73,12 +73,12 @@ build-all-sum-exec:
 	make build-native-main-go-sum
 	make build-main-c-sum
 
-start-benchmarking-c-sum:
-	./benchmarking.sh  "gcc -o $(cExecFileNameSum) $(cMainFileSum) $(cLibFileSum)"  output_c_compiler_sum
+benchmark-c-sum:
+	./benchmarking.sh  "gcc -o $(cExecFileNameSum) $(cMainFileSum)"  output_c_compiler_sum "$(cExecFileNameSum)"
 	./benchmarking.sh  ./$(cExecFileNameSum) output_c_sum
 
-start-benchmarking-go-native-sum:
-	./benchmarking.sh  "go build -o $(goNativeExecFileNameSum) $(goNativeMainFileSum)" output_go_native_compiler_sum --size
+benchmark-go-native-sum:
+	./benchmarking.sh  "go build -o $(goNativeExecFileNameSum) $(goNativeMainFileSum)" output_go_native_compiler_sum "$(goNativeExecFileNameSum)"
 	./benchmarking.sh  ./$(goNativeExecFileNameSum) output_go_native_sum
 
 clean:
