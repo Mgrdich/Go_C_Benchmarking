@@ -4,7 +4,7 @@ cExecFileName := c-exec-main
 goMainFile := main.go
 goNativeMainFile := native-main.go
 cMainFile := main.c
-cLibFile := prime.c
+cLibFile := primes.c
 
 
 build-main-go: $(goMainFile)
@@ -34,8 +34,8 @@ start-benchmarking-go:
 	./benchmarking.sh  ./$(goExecFileName) output_go
 
 start-benchmarking-go-native:
-	./benchmarking.sh  "go build -o $(goNativeExecFileName) $(goNativeMainFile)" output_go_compiler
-	./benchmarking.sh  ./$(goNativeExecFileName) output_go
+	./benchmarking.sh  "go build -o $(goNativeExecFileName) $(goNativeMainFile)" output_go_native_compiler
+	./benchmarking.sh  ./$(goNativeExecFileName) output_go_native
 
 clean:
 	rm -rf *.o $(goExecFileName) $(cExecFileName) $(goNativeExecFileName)
