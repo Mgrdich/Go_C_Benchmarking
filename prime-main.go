@@ -7,5 +7,5 @@ void PrintPrimesUpToN(int n);
 import "C"
 
 func main() {
-	C.PrintPrimesUpToN(C.int(100000000))
+	C.PrintPrimesUpToN(C.int(10000000))
 }
