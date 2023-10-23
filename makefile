@@ -2,7 +2,7 @@
 goExecFileNamePrime := go-exec-main-prime
 goNativeExecFileNamePrime := go-native-exec-main-prime
 cExecFileNamePrime := c-exec-main-prime
-cExecFileNameOptimizedPrime := c-exec-optimzed-main-prime
+cExecFileNameOptimizedPrime := c-exec-optimized-main-prime
 
 goMainFilePrime := prime-main.go
 goNativeMainFilePrime := prime-native-main.go
