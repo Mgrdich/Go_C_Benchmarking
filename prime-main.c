@@ -4,6 +4,6 @@
 
 
 int main(){
-    PrintPrimesUpToN(10000000);
+    PrintPrimesUpToN(100000000);
     return 0;
 }
