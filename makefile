@@ -12,10 +12,10 @@ cLibFilePrime := prime.c
 
 
 build-main-go-prime: $(goMainFilePrime)
-	go build -o $(goExecFileNamePrime) $(goMainFilePrime)
+	go build -ldflags "-s -w" -o $(goExecFileNamePrime) $(goMainFilePrime)
 
 build-native-main-go-prime: $(goNativeMainFilePrime)
-	go build -o $(goNativeExecFileNamePrime) $(goNativeMainFilePrime)
+	go build -ldflags "-s -w" -o $(goNativeExecFileNamePrime) $(goNativeMainFilePrime)
 
 build-main-c-linker-prime: $(cLibFilePrime)
 	gcc -c prime.c -o prime.o
@@ -24,7 +24,7 @@ build-main-c-prime: $(cMainFilePrime) $(cLibFilePrime)
 	gcc -o $(cExecFileNamePrime) $(cMainFilePrime) $(cLibFilePrime)
 
 build-main-c-optimized-prime: $(cMainFilePrime) $(cLibFilePrime)
-	gcc -O3 -o $(cExecFileNameOptimizedPrime) $(cMainFilePrime) $(cLibFilePrime)
+	gcc -O2 -o $(cExecFileNameOptimizedPrime) $(cMainFilePrime) $(cLibFilePrime)
 
 run-main-go-prime: $(goExecFileNamePrime)
 	./$(goExecFileNamePrime)
@@ -45,16 +45,16 @@ benchmark-c-prime:
 	./benchmarking.sh  "gcc -o $(cExecFileNamePrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_compiler_prime
 	./benchmarking.sh  ./$(cExecFileNamePrime) output_c_prime
 
-benchmark-c-prime:
+benchmark-c-optimized-prime:
 	./benchmarking.sh  "gcc -O3 -o $(cExecFileNameOptimizedPrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_optimized_compiler_prime
 	./benchmarking.sh  ./$(cExecFileNameOptimizedPrime) output_c_optimized_prime
 
 benchmark-go-prime:
-	./benchmarking.sh  "go build -o $(goExecFileNamePrime) $(goMainFilePrime)" output_go_compiler_prime --size
+	./benchmarking.sh  "go build -ldflags \"-s -w\" -o $(goExecFileNamePrime) $(goMainFilePrime)" output_go_compiler_prime --size
 	./benchmarking.sh  ./$(goExecFileNamePrime) output_go_prime
 
 benchmark-go-native-prime:
-	./benchmarking.sh  "go build -o $(goNativeExecFileNamePrime) $(goNativeMainFilePrime)" output_go_native_compiler_prime --size
+	./benchmarking.sh  "go build -ldflags \"-s -w\" -o $(goNativeExecFileNamePrime) $(goNativeMainFilePrime)" output_go_native_compiler_prime --size
 	./benchmarking.sh  ./$(goNativeExecFileNamePrime) output_go_native_prime
 
 
@@ -68,13 +68,13 @@ goNativeMainFileSum := sum-native-main.go
 cMainFileSum := sum-main.c
 
 build-native-main-go-sum: $(goNativeMainFileSum)
-	go build -o $(goNativeExecFileNameSum) $(goNativeMainFileSum)
+	go build  -o $(goNativeExecFileNameSum) $(goNativeMainFileSum)
 
 build-main-c-sum: $(cMainFileSum)
 	gcc -o $(cExecFileNameSum) $(cMainFileSum)
 
 build-main-c-optimized-sum: $(cMainFileSum)
-	gcc -O3 -o $(cExecFileNameOptimizedSum) $(cMainFileSum)
+	gcc -O2 -o $(cExecFileNameOptimizedSum) $(cMainFileSum)
 
 run-native-main-go-sum: $(goExecFileNameSum)
 	./$(goNativeExecFileNameSum)
@@ -96,7 +96,7 @@ benchmark-c-optimized-sum:
 	./benchmarking.sh  ./$(cExecFileNameOptimizedSum) output_c_optimized_sum
 
 benchmark-go-native-sum:
-	./benchmarking.sh  "go build -o $(goNativeExecFileNameSum) $(goNativeMainFileSum)" output_go_native_compiler_sum "$(goNativeExecFileNameSum)"
+	./benchmarking.sh  "go build  -o $(goNativeExecFileNameSum) $(goNativeMainFileSum)" output_go_native_compiler_sum "$(goNativeExecFileNameSum)"
 	./benchmarking.sh  ./$(goNativeExecFileNameSum) output_go_native_sum
 
 clean:

@@ -2,10 +2,10 @@
 
 *.o
 
-go-exec-main*
+go-exec-*
 
-c-exec-main*
+c-exec-*
 
-go-native-exec-main*
+go-native-*
 
 output_*

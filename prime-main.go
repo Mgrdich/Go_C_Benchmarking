@@ -1,6 +1,7 @@
 package main
 
 /*
+#cgo CFLAGS: -O3
 void PrintPrimesUpToN(int n);
 #include "prime.c"
 */
