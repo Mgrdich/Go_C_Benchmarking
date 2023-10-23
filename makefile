@@ -42,19 +42,19 @@ build-all-prime-exec:
 	make build-main-c-optimized-prime
 
 benchmark-c-prime:
-	./benchmarking.sh  "gcc -o $(cExecFileNamePrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_compiler_prime
+	./benchmarking.sh  "gcc -o $(cExecFileNamePrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_compiler_prime $(cExecFileNamePrime)
 	./benchmarking.sh  ./$(cExecFileNamePrime) output_c_prime
 
 benchmark-c-optimized-prime:
-	./benchmarking.sh  "gcc -O3 -o $(cExecFileNameOptimizedPrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_optimized_compiler_prime
+	./benchmarking.sh  "gcc -O3 -o $(cExecFileNameOptimizedPrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_optimized_compiler_prime $(cExecFileNameOptimizedPrime)
 	./benchmarking.sh  ./$(cExecFileNameOptimizedPrime) output_c_optimized_prime
 
 benchmark-go-prime:
-	./benchmarking.sh  "go build -ldflags \"-s -w\" -o $(goExecFileNamePrime) $(goMainFilePrime)" output_go_compiler_prime --size
+	./benchmarking.sh  "go build -ldflags \"-s -w\" -o $(goExecFileNamePrime) $(goMainFilePrime)" output_go_compiler_prime $(goExecFileNamePrime)
 	./benchmarking.sh  ./$(goExecFileNamePrime) output_go_prime
 
 benchmark-go-native-prime:
-	./benchmarking.sh  "go build -ldflags \"-s -w\" -o $(goNativeExecFileNamePrime) $(goNativeMainFilePrime)" output_go_native_compiler_prime --size
+	./benchmarking.sh  "go build -ldflags \"-s -w\" -o $(goNativeExecFileNamePrime) $(goNativeMainFilePrime)" output_go_native_compiler_prime $(goNativeExecFileNamePrime)
 	./benchmarking.sh  ./$(goNativeExecFileNamePrime) output_go_native_prime
 
 
