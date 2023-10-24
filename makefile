@@ -49,7 +49,7 @@ benchmark-c-prime:
 benchmark-c-optimized-prime:
 	./benchmarking.sh  "gcc -O2 -o $(cExecFileNameOptimizedPrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_optimized_compiler_prime "$(cExecFileNameOptimizedPrime)"
 	./benchmarking.sh  ./$(cExecFileNameOptimizedPrime) output_c_optimized_prime
-	./benchmarkMemoryStdOut.sh "$(cExecFileNameOptimizedPrime)" output_c_optimized_out_stdout_memory_prime
+	./benchmarkMemoryStdOut.sh "$(cExecFileNameOptimizedPrime)" output_c_optimized_stdout_memory_prime
 
 benchmark-go-prime:
 	./benchmarking.sh  "go build -ldflags \"-s -w\" -o $(goExecFileNamePrime) $(goMainFilePrime)" output_go_compiler_prime "$(goExecFileNamePrime)"
