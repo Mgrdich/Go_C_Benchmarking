@@ -54,12 +54,12 @@ benchmark-c-optimized-prime:
 benchmark-go-prime:
 	./benchmarking.sh  "go build -ldflags \"-s -w\" -o $(goExecFileNamePrime) $(goMainFilePrime)" output_go_compiler_prime "$(goExecFileNamePrime)"
 	./benchmarking.sh  ./$(goExecFileNamePrime) output_go_prime
-	./benchmarkMemoryStdOut.sh "$(goExecFileNamePrime)" output_c_optimized_out_stdout_memory_prime
+	./benchmarkMemoryStdOut.sh "$(goExecFileNamePrime)" output_go_stdout_memory_prime
 
 benchmark-go-native-prime:
 	./benchmarking.sh  "go build -ldflags \"-s -w\" -o $(goNativeExecFileNamePrime) $(goNativeMainFilePrime)" output_go_native_compiler_prime "$(goNativeExecFileNamePrime)"
 	./benchmarking.sh  ./$(goNativeExecFileNamePrime) output_go_native_prime
-	./benchmarkMemoryStdOut.sh "$(goNativeExecFileNamePrime)" output_c_optimized_out_stdout_memory_prime
+	./benchmarkMemoryStdOut.sh "$(goNativeExecFileNamePrime)" output_go_native_stdout_memory_prime
 
 
 
@@ -94,17 +94,17 @@ build-all-sum-exec:
 benchmark-c-sum:
 	./benchmarking.sh  "gcc -o $(cExecFileNameSum) $(cMainFileSum)"  output_c_compiler_sum "$(cExecFileNameSum)"
 	./benchmarking.sh  ./$(cExecFileNameSum) output_c_sum
-	./benchmarkMemoryStdOut.sh "$(cExecFileNameSum)" output_c_out_memory_sum
+	./benchmarkMemoryStdOut.sh "$(cExecFileNameSum)" output_c_stdout_memory_sum
 
 benchmark-c-optimized-sum:
 	./benchmarking.sh  "gcc -O2 -o $(cExecFileNameOptimizedSum) $(cMainFileSum)"  output_c_optimized_compiler_sum "$(cExecFileNameOptimizedSum)"
 	./benchmarking.sh  ./$(cExecFileNameOptimizedSum) output_c_optimized_sum
-	./benchmarkMemoryStdOut.sh "$(cExecFileNameOptimizedSum)" output_c_optimized_out_memory_sum
+	./benchmarkMemoryStdOut.sh "$(cExecFileNameOptimizedSum)" output_c_optimized_stdout_memory_sum
 
 benchmark-go-native-sum:
 	./benchmarking.sh  "go build -o $(goNativeExecFileNameSum) $(goNativeMainFileSum)" output_go_native_compiler_sum "$(goNativeExecFileNameSum)"
 	./benchmarking.sh  ./$(goNativeExecFileNameSum) output_go_native_sum
-	./benchmarkMemoryStdOut.sh "$(goNativeExecFileNameSum)" output_go_out_memory_sum
+	./benchmarkMemoryStdOut.sh "$(goNativeExecFileNameSum)" output_go_native_stdout_memory_sum
 
 clean:
 	rm -rf *.o $(goExecFileNamePrime) $(cExecFileNamePrime) $(goNativeExecFileNamePrime) $(goExecFileNameSum) $(cExecFileNameSum) $(goNativeExecFileNameSum) $(cExecFileNameOptimizedSum) $(cExecFileNameOptimizedPrime)
