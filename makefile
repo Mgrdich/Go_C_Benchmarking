@@ -44,7 +44,7 @@ build-all-prime-exec:
 benchmark-c-prime:
 	./benchmarking.sh  "gcc -o $(cExecFileNamePrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_compiler_prime "$(cExecFileNamePrime)"
 	./benchmarking.sh  ./$(cExecFileNamePrime) output_c_prime
-	./benchmarkMemoryStdOut.sh "$(cExecFileNamePrime)" output_c_out_stdout_memory_sum
+	./benchmarkMemoryStdOut.sh "$(cExecFileNamePrime)" output_c_out_stdout_memory_prime
 
 benchmark-c-optimized-prime:
 	./benchmarking.sh  "gcc -O2 -o $(cExecFileNameOptimizedPrime) $(cMainFilePrime) $(cLibFilePrime)"  output_c_optimized_compiler_prime "$(cExecFileNameOptimizedPrime)"
