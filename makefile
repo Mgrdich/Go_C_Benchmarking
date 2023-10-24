@@ -24,7 +24,7 @@ build-main-c-prime: $(cMainFilePrime) $(cLibFilePrime)
 	gcc -o $(cExecFileNamePrime) $(cMainFilePrime) $(cLibFilePrime)
 
 build-main-c-optimized-prime: $(cMainFilePrime) $(cLibFilePrime)
-	gcc -O3 -o $(cExecFileNameOptimizedPrime) $(cMainFilePrime) $(cLibFilePrime)
+	gcc -O2 -o $(cExecFileNameOptimizedPrime) $(cMainFilePrime) $(cLibFilePrime)
 
 run-main-go-prime: $(goExecFileNamePrime)
 	./$(goExecFileNamePrime)
