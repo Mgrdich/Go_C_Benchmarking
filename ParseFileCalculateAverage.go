@@ -4,26 +4,28 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
-	file, err := os.Open("output_c_sum")
+	if len(os.Args) != 2 {
+		panic("parameter of the executable is wrong")
+	}
+	file, err := os.Open(os.Args[1])
 	if err != nil {
-		fmt.Println(err)
-		return
+		panic(err)
 	}
 	defer func(file *os.File) {
 		err := file.Close()
 		if err != nil {
-
+			panic(err)
 		}
 	}(file)
 
 	scanner := bufio.NewScanner(file)
 
-	sums := make(map[string]float64)
+	sums := make(map[string]time.Duration)
 	counts := make(map[string]int)
 
 	for scanner.Scan() {
@@ -34,12 +36,10 @@ func main() {
 			fieldName := fields[0]
 			valueStr := fields[1]
 
-			minuteSeconds := strings.Split(valueStr, "m")
-			if len(minuteSeconds) == 2 {
-				minValue, err := strconv.ParseFloat(minuteSeconds[0], 64)
-				secondsValue, err := strconv.ParseFloat(strings.TrimSuffix(minuteSeconds[1], "s"), 64)
+			if strings.HasSuffix(valueStr, "s") {
+				parsedTime, err := time.ParseDuration(valueStr)
 				if err == nil {
-					sums[fieldName] += minValue*60 + secondsValue
+					sums[fieldName] = sums[fieldName] + parsedTime
 					counts[fieldName]++
 				}
 			}
@@ -50,8 +50,9 @@ func main() {
 	for fieldName, total := range sums {
 		count := counts[fieldName]
 		if count > 0 {
-			average := total / float64(count)
-			fmt.Printf("Average %s: %.3f\n", fieldName, average)
+			average := total / time.Duration(count)
+			fmt.Printf("Total Duration: %v\n", total)
+			fmt.Printf("Average Duration: %v\n", average)
 		} else {
 			fmt.Printf("No data found for %s\n", fieldName)
 		}
