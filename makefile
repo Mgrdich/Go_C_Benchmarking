@@ -129,54 +129,54 @@ benchmark-go-native-sum:
 
 
 parsedExecData:=print_data
-parsedFileData:=parse-file-data
+parsedFileData:=parse-file-data.go
 
-make-parse-data: $(parsedFileData)
-	go build -o $(parsedExecAverage) $(parseFileData)
+parse-data-build: $(parsedFileData)
+	go build -o $(parsedExecData) $(parsedFileData)
 
 # prime results
-print-c-prime-data: $(parsedExecData) $(outCPrimeFile)
+print-c-prime-data: parse-data-build $(outCPrimeFile)
 	./$(parsedExecData) $(outCPrimeFile)
 
-print-c-compiler-prime-data: $(parsedExecData) $(outCCompilerPrimeFile)
+print-c-compiler-prime-data: parse-data-build $(outCCompilerPrimeFile)
 	./$(parsedExecData) $(outCCompilerPrimeFile)
 
-print-c-optimized-prime-data: $(parsedExecData) $(outCOptimizedPrimeFile)
+print-c-optimized-prime-data: parse-data-build $(outCOptimizedPrimeFile)
 	./$(parsedExecData) $(outCOptimizedPrimeFile)
 
-print-c-optimized-compiler-prime-data: $(parsedExecData) $(outCOptimizedCompilerPrimeFile)
+print-c-optimized-compiler-prime-data: parse-data-build $(outCOptimizedCompilerPrimeFile)
 	./$(parsedExecData) $(outCOptimizedCompilerPrimeFile)
 
-print-go-prime-data: $(parsedExecData) $(outGoPrimeFile)
+print-go-prime-data: parse-data-build $(outGoPrimeFile)
 	./$(parsedExecData) $(outGoPrimeFile)
 
-print-go-compiler-prime-data: $(parsedExecData) $(outGoCompilerPrimeFile)
+print-go-compiler-prime-data: parse-data-build $(outGoCompilerPrimeFile)
 	./$(parsedExecData) $(outGoCompilerPrimeFile)
 
-print-native-go-prime-data: $(parsedExecData) $(outNativeGoPrimeFile)
+print-native-go-prime-data: parse-data-build $(outNativeGoPrimeFile)
 	./$(parsedExecData) $(outNativeGoPrimeFile)
 
-print-native-go-compiler-prime-data: $(parsedExecData) $(outNativeGoCompilerPrimeFile)
+print-native-go-compiler-prime-data: parse-data-build $(outNativeGoCompilerPrimeFile)
 	./$(parsedExecData) $(outNativeGoCompilerPrimeFile)
 
 
 # sum results
-print-c-sum-data: $(parsedExecData) $(outCSumFile)
+print-c-sum-data: parse-data-build $(outCSumFile)
 	./$(parsedExecData) $(outCSumFile)
 
-print-c-compiler-sum-data: $(parsedExecData) $(outCCompilerSumFile)
+print-c-compiler-sum-data: parse-data-build $(outCCompilerSumFile)
 	./$(parsedExecData) $(outCCompilerSumFile)
 
-print-c-optimized-sum-data: $(parsedExecData) $(outCOptimizedSumFile)
+print-c-optimized-sum-data: parse-data-build $(outCOptimizedSumFile)
 	./$(parsedExecData) $(outCOptimizedSumFile)
 
-print-c-optimized-compiler-sum-data: $(parsedExecData) $(outCOptimizedCompilerSumFile)
+print-c-optimized-compiler-sum-data: parse-data-build $(outCOptimizedCompilerSumFile)
 	./$(parsedExecData) $(outCOptimizedCompilerSumFile)
 
-print-native-go-sum-data: $(parsedExecData) $(outNativeGoSumFile)
+print-native-go-sum-data: parse-data-build $(outNativeGoSumFile)
 	./$(parsedExecData) $(outNativeGoSumFile)
 
-print-native-go-compiler-sum-data: $(parsedExecData) $(outNativeGoCompilerSumFile)
+print-native-go-compiler-sum-data: parse-data-build $(outNativeGoCompilerSumFile)
 	./$(parsedExecData) $(outNativeGoCompilerSumFile)
 
 clean:

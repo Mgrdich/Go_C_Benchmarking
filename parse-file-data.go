@@ -24,7 +24,9 @@ func main() {
 		}
 	}(file)
 
+	fmt.Println("---------------------------------")
 	fmt.Println("File Name:", fileDir)
+	fmt.Println()
 
 	scanner := bufio.NewScanner(file)
 
@@ -54,10 +56,13 @@ func main() {
 		count := counts[fieldName]
 		if count > 0 {
 			average := total / time.Duration(count)
-			fmt.Printf("Total Duration: %v\n", total)
-			fmt.Printf("Average Duration: %v\n", average)
+			fmt.Println("Total", fieldName, "Duration:", total)
+			fmt.Println("Average", fieldName, "Duration:", average)
+			fmt.Println()
 		} else {
 			fmt.Printf("No data found for %s\n", fieldName)
 		}
 	}
+
+	fmt.Println("---------------------------------")
 }

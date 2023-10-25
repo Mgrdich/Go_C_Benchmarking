@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$1" ] || [ -z "$2" ]; then
-    echo "Usage: $0 <command-to-run> <output-file>"
+    echo "Usage: $0 <command-to-run> <output-file> <exec-file-name>"
     exit 1
 fi
 
