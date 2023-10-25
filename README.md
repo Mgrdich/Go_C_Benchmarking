@@ -1,7 +1,29 @@
 # Benchmarking with C and Go
 
 This is a simple benchmarking app , with scripts and make commands to build any 
-arbitrary file and benchmark it's speed and performance
+arbitrary file and benchmark it's speed and performancea
+
+
+In order to use this
+* you must have go `1.21.1` installed
+* you must have a C compiler called GCC
+
+if other versions of Go is found please update your `go.mod`a
+
+if other C compiler are found please update your makefile
+
+## Introduction
+Two variations of code is here 
+* one to calculate prime numbers up to N
+* one to calculate Sum of N numbers
+
+latter is for compiler optimization example 
+
+we benchmark 4 versions 
+* Native-Go: simple go program
+* Go: Go program that uses C
+* C: simple C program
+* COptimized: optimization flag set during the compilation
 
 
 ## How to use it 
