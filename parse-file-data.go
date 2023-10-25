@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strings"
 	"time"
 )
@@ -52,9 +53,17 @@ func main() {
 		}
 	}
 
-	for fieldName, total := range sums {
-		count := counts[fieldName]
-		if count > 0 {
+	keys := make([]string, 0, len(sums))
+	for k := range sums {
+		keys = append(keys, k)
+	}
+
+	sort.Strings(keys)
+
+	for _, fieldName := range keys {
+		count, countOk := counts[fieldName]
+		total, ok := sums[fieldName]
+		if countOk && count > 0 && ok {
 			average := total / time.Duration(count)
 			fmt.Println("Total", fieldName, "Duration:", total)
 			fmt.Println("Average", fieldName, "Duration:", average)
