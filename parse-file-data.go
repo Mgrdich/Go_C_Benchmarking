@@ -12,6 +12,7 @@ func main() {
 	if len(os.Args) != 2 {
 		panic("parameter of the executable is wrong")
 	}
+	fileDir := os.Args[1]
 	file, err := os.Open(os.Args[1])
 	if err != nil {
 		panic(err)
@@ -22,6 +23,8 @@ func main() {
 			panic(err)
 		}
 	}(file)
+
+	fmt.Println("File Name:", fileDir)
 
 	scanner := bufio.NewScanner(file)
 
