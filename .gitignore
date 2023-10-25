@@ -9,3 +9,5 @@ c-exec-*
 go-native-*
 
 output_*
+
+print_data
